@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jocelyn Tsai.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -31,9 +31,25 @@ def run_test_zero_changer():
     print('  Actual:  ', test1)
 
     # ------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
+    # DONE: 2. Write at least 2 additional tests for the  zero_changer   function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
+    test1 = ([1, 4, 11, 14], [], [11, 3, 4, 5], [1, 0])
+    expected1 = ([1, 4, 11, 14], [], [11, 3, 4, 5], [1, 1])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    test1 = ([3, 0, 3, 4], [2], [2, 3, 4, 5], [10, 14])
+    expected1 = ([3, 1, 3, 4], [2], [2, 3, 4, 5], [10, 14])
+    zero_changer(test1)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
 
 
 def zero_changer(tuple_of_lists):
@@ -61,7 +77,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -69,7 +85,16 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+    list_index = []
+    index = []
+    for k in range(len(tuple_of_lists)):
+        for j in range(len(tuple_of_lists[k])):
+            if tuple_of_lists[k][j] == 0:
+                list_index.append(k)
+                index.append(j)
 
+    for k in range(len(list_index)):
+        tuple_of_lists[list_index[k]][index[k]] = k + 1
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
